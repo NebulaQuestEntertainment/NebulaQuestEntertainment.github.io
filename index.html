@@ -15,7 +15,7 @@
 <body>
     <header>
         <h1>Welcome to Nebula Quest Entertainment</h1>
-        <!-- Description moved to meta description tag -->
+        <p id="descriptionParagraph"></p> <!-- Paragraph for meta description content -->
     </header>
     
     <nav>
@@ -67,5 +67,13 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        // Retrieve meta description content
+        var metaDescription = document.querySelector('meta[name="description"]').content;
+
+        // Set the content of the description paragraph
+        document.getElementById('descriptionParagraph').innerHTML = metaDescription;
+    </script>
 </body>
 </html>
