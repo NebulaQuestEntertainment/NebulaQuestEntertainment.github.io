@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,13 @@
 
     <title>Nebula Quest Entertainment</title>
 </head>
+
 <body>
     <header>
         <h1>Welcome to Nebula Quest Entertainment</h1>
         <p id="descriptionParagraph"></p>
     </header>
-    
+
     <nav>
         <div class="tab-container">
             <div class="tab" data-tab="home" onclick="showTab('home')">Home</div>
@@ -27,26 +29,26 @@
         </div>
     </nav>
 
-    <section id="home" class="section active">
+    <section id="home" class="section active" onscroll="updateDescription('Embark on an Indie Odyssey', 'Dive into the extraordinary world of indie gaming. Nebula Quest Entertainment brings your gaming fantasies to life.')">
         <h2>Embark on an Indie Odyssey</h2>
         <p>Dive into the extraordinary world of indie gaming. Nebula Quest Entertainment brings your gaming fantasies to life.</p>
     </section>
 
-    <section id="games" class="section">
+    <section id="games" class="section" onscroll="updateDescription('Our Indie Games', 'Immerse yourself in the charm of our indie games, where every pixel tells a story. Check out our collection of thrilling adventures.')">
         <h2>Our Indie Games</h2>
         <p>Immerse yourself in the charm of our indie games, where every pixel tells a story. Check out our collection of thrilling adventures.</p>
         <!-- Add game details or images here -->
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section" onscroll="updateDescription('The Indie Creators', 'We are a team of indie enthusiasts crafting unforgettable gaming experiences. Meet the minds behind Nebula Quest Entertainment.')">
         <h2>The Indie Creators</h2>
         <p>We are a team of indie enthusiasts crafting unforgettable gaming experiences. Meet the minds behind Nebula Quest Entertainment.</p>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section" onscroll="updateDescription('Get in Touch', 'Have questions, ideas, or just want to chat? We\'d love to hear from fellow gamers and indie enthusiasts!')">
         <h2>Get in Touch</h2>
         <p>Have questions, ideas, or just want to chat? We'd love to hear from fellow gamers and indie enthusiasts!</p>
-        
+
         <!-- Contact Form -->
         <form action="submit_form.php" method="post">
             <label for="name">Name:</label>
@@ -69,11 +71,11 @@
     <script src="script.js"></script>
 
     <script>
-        // Retrieve meta description content
-        var metaDescription = document.querySelector('meta[name="description"]').content;
-
-        // Set the content of the description paragraph
-        document.getElementById('descriptionParagraph').innerHTML = metaDescription;
+        // Function to update description based on active section
+        function updateDescription(title, description) {
+            document.getElementById('descriptionParagraph').innerHTML = `<strong>${title}</strong>: ${description}`;
+        }
     </script>
 </body>
+
 </html>
