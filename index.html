@@ -63,7 +63,6 @@
     <!-- JavaScript for smooth scrolling -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var sections = document.querySelectorAll('section');
             var scrollLinks = document.querySelectorAll('.scroll-link');
 
             window.addEventListener('scroll', function () {
@@ -72,8 +71,11 @@
 
                 // Find the index of the section that is currently in view
                 var currentIndex = 0;
-                sections.forEach(function (section, index) {
+                scrollLinks.forEach(function (link, index) {
+                    var sectionId = link.getAttribute('href').substring(1);
+                    var section = document.getElementById(sectionId);
                     var sectionTop = section.offsetTop;
+
                     if (scrollPosition >= sectionTop) {
                         currentIndex = index;
                     }
@@ -84,11 +86,6 @@
                     link.classList.remove('active');
                 });
                 scrollLinks[currentIndex].classList.add('active');
-
-                // Simulate a click event on the next link when scrolling down
-                if (currentIndex < scrollLinks.length - 1 && scrollPosition >= sections[currentIndex + 1].offsetTop) {
-                    scrollLinks[currentIndex + 1].click();
-                }
             });
 
             // Loop through each link and add a click event listener
