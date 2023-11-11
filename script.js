@@ -1,11 +1,15 @@
+// script.js
+
 function showTab(tabId) {
     // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
+    var sections = document.querySelectorAll('.section');
+    sections.forEach(function (section) {
         section.classList.remove('active');
     });
 
     // Show the selected section
-    const selectedSection = document.getElementById(tabId);
-    selectedSection.classList.add('active');
+    var selectedSection = document.getElementById(tabId);
+    if (selectedSection) {
+        selectedSection.classList.add('active');
+    }
 }
