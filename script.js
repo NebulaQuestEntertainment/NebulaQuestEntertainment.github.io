@@ -1,47 +1,44 @@
-// script.js
+// Function to show/hide tabs
+function showTab(tabId) {
+    // Hide all sections
+    var sections = document.querySelectorAll('.section');
+    sections.forEach(function (section) {
+        section.classList.remove('active');
+    });
 
-function scrollToSection(tabId) {
-    var targetSection = document.getElementById(tabId);
-
-    if (targetSection) {
-        // Scroll to the target section smoothly
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
-
-        // Highlight the active tab
-        var tabs = document.querySelectorAll('.tab');
-        tabs.forEach(function (tab) {
-            tab.classList.remove('active');
-        });
-
-        var selectedTab = document.querySelector('.tab[data-tab="' + tabId + '"]');
-        if (selectedTab) {
-            selectedTab.classList.add('active');
-        }
-    }
+    // Show the selected section
+    var selectedSection = document.getElementById(tabId);
+    selectedSection.classList.add('active');
 }
 
-// Add an event listener for scrolling
+// Function to update description based on active section
+function updateDescription(title, description) {
+    document.getElementById('descriptionParagraph').innerHTML = `<strong>${title}</strong>: ${description}`;
+}
+
+// Add an event listener for the scroll event
 window.addEventListener('scroll', function () {
-    var currentSection = null;
+    // Get the current scroll position
+    var scrollPosition = window.scrollY;
 
-    // Find the section currently in view
-    document.querySelectorAll('.section').forEach(function (section) {
-        var rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = section.id;
-        }
-    });
+    // Define the offsets for each section
+    var homeOffset = document.getElementById('home').offsetTop;
+    var gamesOffset = document.getElementById('games').offsetTop;
+    var aboutOffset = document.getElementById('about').offsetTop;
+    var contactOffset = document.getElementById('contact').offsetTop;
 
-    // Highlight the active tab based on the current section
-    var tabs = document.querySelectorAll('.tab');
-    tabs.forEach(function (tab) {
-        tab.classList.remove('active');
-    });
-
-    var activeTab = document.querySelector('.tab[data-tab="' + currentSection + '"]');
-    if (activeTab) {
-        activeTab.classList.add('active');
+    // Determine which section is currently in view
+    if (scrollPosition >= homeOffset && scrollPosition < gamesOffset) {
+        updateDescription('Embark on an Indie Odyssey', 'Dive into the extraordinary world of indie gaming. Nebula Quest Entertainment brings your gaming fantasies to life.');
+        showTab('home');
+    } else if (scrollPosition >= gamesOffset && scrollPosition < aboutOffset) {
+        updateDescription('Our Indie Games', 'Immerse yourself in the charm of our indie games, where every pixel tells a story. Check out our collection of thrilling adventures.');
+        showTab('games');
+    } else if (scrollPosition >= aboutOffset && scrollPosition < contactOffset) {
+        updateDescription('The Indie Creators', 'We are a team of indie enthusiasts crafting unforgettable gaming experiences. Meet the minds behind Nebula Quest Entertainment.');
+        showTab('about');
+    } else if (scrollPosition >= contactOffset) {
+        updateDescription('Get in Touch', 'Have questions, ideas, or just want to chat? We\'d love to hear from fellow gamers and indie enthusiasts!');
+        showTab('contact');
     }
 });
