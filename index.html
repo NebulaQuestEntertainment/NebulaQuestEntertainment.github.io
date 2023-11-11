@@ -39,6 +39,11 @@
             margin: 0 15px;
             cursor: pointer;
         }
+
+        /* Highlight style for the active link */
+        .active {
+            color: #ffcc00;
+        }
     </style>
 </head>
 
@@ -79,6 +84,11 @@
                     link.classList.remove('active');
                 });
                 scrollLinks[currentIndex].classList.add('active');
+
+                // Simulate a click event on the next link when scrolling down
+                if (currentIndex < scrollLinks.length - 1 && scrollPosition >= sections[currentIndex + 1].offsetTop) {
+                    scrollLinks[currentIndex + 1].click();
+                }
             });
 
             // Loop through each link and add a click event listener
