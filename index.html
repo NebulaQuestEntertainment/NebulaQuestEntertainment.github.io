@@ -58,11 +58,31 @@
     <!-- JavaScript for smooth scrolling -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get all anchor links with the class 'scroll-link'
+            var sections = document.querySelectorAll('section');
             var scrollLinks = document.querySelectorAll('.scroll-link');
 
+            window.addEventListener('scroll', function () {
+                // Find the current scroll position
+                var scrollPosition = window.scrollY || window.pageYOffset;
+
+                // Find the index of the section that is currently in view
+                var currentIndex = 0;
+                sections.forEach(function (section, index) {
+                    var sectionTop = section.offsetTop;
+                    if (scrollPosition >= sectionTop) {
+                        currentIndex = index;
+                    }
+                });
+
+                // Highlight the corresponding link in the navigation menu
+                scrollLinks.forEach(function (link) {
+                    link.classList.remove('active');
+                });
+                scrollLinks[currentIndex].classList.add('active');
+            });
+
             // Loop through each link and add a click event listener
-            scrollLinks.forEach(function (link) {
+            scrollLinks.forEach(function (link, index) {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
 
