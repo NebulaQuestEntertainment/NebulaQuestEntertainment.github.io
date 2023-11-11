@@ -1,23 +1,25 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
     color: #fff;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 header {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     text-align: center;
     padding: 20px;
     position: relative;
+    border-bottom: 2px solid #fff;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 2.5em;
     text-transform: uppercase;
 }
 
@@ -27,35 +29,45 @@ header p {
 }
 
 nav {
-    background-color: #444;
+    background-color: #000;
     padding: 10px;
+    border-bottom: 2px solid #fff;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+.tab-container {
+    display: flex;
+    justify-content: space-around;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 15px;
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
+.tab:hover {
+    background-color: #fff;
+    color: #000;
 }
 
-nav a:hover {
-    color: #ffcc00;
-}
-
-section {
+.section {
     padding: 20px;
+    height: 100vh; /* Make each section take up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
@@ -63,11 +75,12 @@ h2 {
 }
 
 footer {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     text-align: center;
     padding: 10px;
     position: absolute;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #fff;
 }
