@@ -21,7 +21,7 @@ Embark on thrilling quests and discover new realms through our captivating games
 
 Reach out to us for inquiries, partnerships, or just to say hello! We'd love to hear from you.
 
-- Email: contact@nebulaquest.com
+- Email: nebulaquestentertainment@gmail.com
 - Twitter: [@NebulaQuest](https://twitter.com/NebulaQuest)
 - Facebook: [Nebula Quest](https://www.facebook.com/NebulaQuest)
 
