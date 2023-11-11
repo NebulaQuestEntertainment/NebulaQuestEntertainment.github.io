@@ -1,96 +1,52 @@
 <!DOCTYPE html>
-<html lang="ja">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME FREAK</title>
-
-    <!-- Include your stylesheets and scripts here -->
-    <link rel="stylesheet" href="path/to/your/styles.css">
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-SE9TT8Q4TZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-SE9TT8Q4TZ');
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all anchor links with the class 'scroll-link'
-            var scrollLinks = document.querySelectorAll('a.scroll-link');
-
-            // Loop through each link and add a click event listener
-            scrollLinks.forEach(function (link) {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    // Get the target element's ID from the link's href attribute
-                    var targetId = this.getAttribute('href').substring(1);
-
-                    // Use the target ID to find the actual element
-                    var targetElement = document.getElementById(targetId);
-
-                    // Scroll to the target element smoothly
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Nebula Quest Entertainment</title>
 </head>
-
 <body>
     <header>
-        <h1 class="logo"><a href="/"><img src="/assets/img/logo.svg" alt="GAME FREAK"></a></h1>
-        <!-- Add your navigation elements here -->
-        <nav>
-            <ul>
-                <!-- Add the 'scroll-link' class to enable smooth scrolling -->
-                <li><a href="#vision" class="scroll-link">Vision</a></li>
-                <li><a href="#works" class="scroll-link">Works</a></li>
-                <li><a href="#message" class="scroll-link">Message</a></li>
-                <li><a href="#company" class="scroll-link">Company</a></li>
-                <li><a href="#topics" class="scroll-link">Topics</a></li>
-                <li><a href="#recruit" class="scroll-link">Recruit</a></li>
-            </ul>
-        </nav>
+        <h1>Nebula Quest Entertainment</h1>
+        <p>Embark on a Galactic Adventure</p>
     </header>
+    
+    <nav>
+        <div class="tab-container">
+            <div class="tab" onclick="showTab('home')">Home</div>
+            <div class="tab" onclick="showTab('games')">Games</div>
+            <div class="tab" onclick="showTab('about')">About Us</div>
+            <div class="tab" onclick="showTab('contact')">Contact</div>
+        </div>
+    </nav>
 
-    <main>
-        <!-- Add your main content sections here -->
-        <section id="vision" class="slide">
-            <!-- Add your slide content here -->
-        </section>
+    <section id="home" class="section active">
+        <h2>Welcome to Nebula Quest Entertainment</h2>
+        <p>Explore the cosmos of gaming with our epic adventures and immersive experiences.</p>
+    </section>
 
-        <section id="works" class="slide__block slide__block--works">
-            <!-- Add your works content here -->
-        </section>
+    <section id="games" class="section">
+        <h2>Our Games</h2>
+        <p>Embark on thrilling quests and discover new realms through our captivating games.</p>
+        <!-- Add game details or images here -->
+    </section>
 
-        <section id="message" class="slide__block slide__block--dna">
-            <!-- Add your message content here -->
-        </section>
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We are a passionate team dedicated to creating unforgettable gaming experiences.</p>
+    </section>
 
-        <section id="company" class="slide__block slide__block--company">
-            <!-- Add your company content here -->
-        </section>
-
-        <section id="topics" class="slide__block slide__block--topics">
-            <!-- Add your topics content here -->
-        </section>
-
-        <section id="recruit" class="slide__block slide__block--recruit">
-            <!-- Add your recruit content here -->
-        </section>
-    </main>
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for inquiries, partnerships, or just to say hello!</p>
+        <!-- Add a contact form or details here -->
+    </section>
 
     <footer>
-        <!-- Add your footer content here -->
+        <p>&copy; 2023 Nebula Quest Entertainment. All rights reserved.</p>
     </footer>
-</body>
 
+    <script src="script.js"></script>
+</body>
 </html>
