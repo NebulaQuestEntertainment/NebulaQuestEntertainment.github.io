@@ -13,15 +13,15 @@
     </header>
     
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="tab-container">
+            <div class="tab" onclick="showTab('home')">Home</div>
+            <div class="tab" onclick="showTab('games')">Games</div>
+            <div class="tab" onclick="showTab('about')">About Us</div>
+            <div class="tab" onclick="showTab('contact')">Contact</div>
+        </div>
     </nav>
 
-    <section id="home" class="section">
+    <section id="home" class="section active">
         <h2>Welcome to Nebula Quest Entertainment</h2>
         <p>Explore the cosmos of gaming with our epic adventures and immersive experiences.</p>
     </section>
@@ -46,5 +46,7 @@
     <footer>
         <p>&copy; 2023 Nebula Quest Entertainment. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
