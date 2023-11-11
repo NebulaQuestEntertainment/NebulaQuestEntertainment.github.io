@@ -1,72 +1,87 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME FREAK</title>
+    <title>Smooth Scroll Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Include your stylesheets and scripts here -->
-    <link rel="stylesheet" href="path/to/your/styles.css">
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-SE9TT8Q4TZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-SE9TT8Q4TZ');
-    </script>
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        /* Style for the fixed navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1 class="logo"><a href="/"><img src="/assets/img/logo.svg" alt="GAME FREAK"></a></h1>
-        <!-- Add your navigation elements here -->
-        <nav>
-            <ul>
-                <li><a href="/company/vision/">Vision</a></li>
-                <li><a href="/works/">Works</a></li>
-                <li><a href="/message/">Message</a></li>
-                <li><a href="/company/about/">Company</a></li>
-                <li><a href="/topics/">Topics</a></li>
-                <li><a href="/recruit/">Recruit</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Fixed navigation menu -->
+    <nav>
+        <a href="#section1" class="scroll-link">Section 1</a>
+        <a href="#section2" class="scroll-link">Section 2</a>
+        <a href="#section3" class="scroll-link">Section 3</a>
+    </nav>
 
-    <main>
-        <!-- Add your main content sections here -->
-        <section class="slide">
-            <!-- Add your slide content here -->
-        </section>
+    <!-- Sections with content -->
+    <section id="section1" style="background-color: #f2f2f2;">Section 1</section>
+    <section id="section2" style="background-color: #b3d9ff;">Section 2</section>
+    <section id="section3" style="background-color: #ffe6cc;">Section 3</section>
 
-        <section class="slide__block slide__block--works">
-            <!-- Add your works content here -->
-        </section>
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all anchor links with the class 'scroll-link'
+            var scrollLinks = document.querySelectorAll('.scroll-link');
 
-        <section class="slide__block slide__block--dna">
-            <!-- Add your message content here -->
-        </section>
+            // Loop through each link and add a click event listener
+            scrollLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-        <section class="slide__block slide__block--company">
-            <!-- Add your company content here -->
-        </section>
+                    // Get the target element's ID from the link's href attribute
+                    var targetId = this.getAttribute('href').substring(1);
 
-        <section class="slide__block slide__block--topics">
-            <!-- Add your topics content here -->
-        </section>
+                    // Use the target ID to find the actual element
+                    var targetElement = document.getElementById(targetId);
 
-        <section class="slide__block slide__block--recruit">
-            <!-- Add your recruit content here -->
-        </section>
-    </main>
-
-    <footer>
-        <!-- Add your footer content here -->
-    </footer>
-
-    <!-- Include your additional scripts here -->
-    <script src="path/to/your/scripts.js"></script>
+                    // Scroll to the target element smoothly
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
