@@ -15,6 +15,7 @@
         body {
             display: flex;
             flex-direction: column;
+            align-items: center;
             height: 100vh;
             margin: 0;
         }
@@ -29,6 +30,12 @@
 
         h2 {
             text-align: center;
+        }
+
+        .games-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .tab-container {
@@ -75,11 +82,13 @@
         </div>
     </nav>
 
-    <h2>Games</h2>
-    <a href="https://nebula-quest.itch.io/neo-earth" target="_blank">
-        <p>Neo Earth</p>
-        <img src="images/NEO-EARTH.jpg" alt="Neo Earth Image">
-    </a>
+    <div class="games-container">
+        <h2>Games</h2>
+        <a href="https://nebula-quest.itch.io/neo-earth" target="_blank">
+            <p>Neo Earth</p>
+            <img src="images/NEO-EARTH.jpg" alt="Neo Earth Image">
+        </a>
+    </div>
 
     <footer>
         <p>&copy; 2023 Nebula Quest Entertainment. All rights reserved.</p>
