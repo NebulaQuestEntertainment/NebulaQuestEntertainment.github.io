@@ -22,6 +22,7 @@ Embark on thrilling quests and discover new realms through our captivating games
 Reach out to us for inquiries, partnerships, or just to say hello! We'd love to hear from you.
 
 - Email: nebulaquestentertainment@gmail.com
+- Youtube: https://www.youtube.com/channel/UCMcm9CS6IWq-K39_THonWkQ
 
 ## Getting Started
 
